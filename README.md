@@ -2,10 +2,10 @@
 
 ## Frontend Stack
 
-[ReactJS](http://facebook.github.io/react/)
-[Skeleton CSS](http://getskeleton.com/)
+[ReactJS](http://facebook.github.io/react/)  
+[Skeleton CSS](http://getskeleton.com/)  
 
 ## Backend Stack
 
-[Express](http://expressjs.com/)
-[Socket.io](http://socket.io/)
+[Express](http://expressjs.com/)  
+[Socket.io](http://socket.io/)  
