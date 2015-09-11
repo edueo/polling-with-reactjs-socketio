@@ -9,3 +9,13 @@
 
 [Express](http://expressjs.com/)  
 [Socket.io](http://socket.io/)  
+
+
+## Setup Polling
+
+1. 
+```
+node app-server.js
+```
+
+1. [Polling](http://localhost:3000)
