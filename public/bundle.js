@@ -48,6 +48,40 @@
 
 	var React = __webpack_require__(1);
 	var APP = __webpack_require__(157);
+	var io = __webpack_require__(158);
+	var Header = __webpack_require__(210);
+
+	var APP = React.createClass({
+		displayName: 'APP',
+
+		getInitialState: function getInitialState() {
+			return {
+				status: 'disconnected'
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+			this.socket = io('http://localhost:3000');
+			this.socket.on('connect', this.connect);
+			this.socket.on('disconnect', this.disconnect);
+		},
+
+		connect: function connect() {
+			this.setState({ status: 'connected' });
+		},
+
+		disconnect: function disconnect() {
+			this.setState({ status: 'disconnected' });
+		},
+
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(Header, { title: 'New Header' })
+			);
+		}
+	});
 
 	React.render(React.createElement(APP, null), document.getElementById('react-container'));
 
