@@ -1,5 +1,7 @@
 var React = require('react');
 var io = require('socket.io-client');
+var Header = require('./parts/Header');
+
 
 var APP = React.createClass({
 
@@ -13,7 +15,14 @@ var APP = React.createClass({
 		alert(this.socket.id);
 	},
 	render: function() {
-		return (<h1>Hello World from React</h1>);
+		return (
+
+			<div>
+				<Header title="New Header" />
+
+			</div>
+	
+		);
 	}
 
 });
