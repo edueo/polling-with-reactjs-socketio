@@ -1,48 +1,26 @@
 var React = require('react');
+var Router = require('react-router');
+var Route = Router.Route;
+var DefaultRoute = Router.DefaultRoute;
+
+ 
 var APP = require('./components/APP');
-var io = require('socket.io-client');
-var Header = require('./components/parts/Header');
+var Audience = require('./components/Audience');
+var Speaker = require('./components/Speaker');
+var Board = require('./components/Board');
 
 
-var APP = React.createClass({
+var routes = (
+	<Route handler={APP}>
+		<DefaultRoute handler={Audience} />
+		<Route name="speaker" path="speaker" handler={Speaker}></Route>
+		<Route name="board" path="board" handler={Board}></Route>
 
-	getInitialState() {
-		return {
-			status: 'disconnected',
-			title : ''
-		}
-	},
+	</Route>
 
-	componentWillMount() {
-		this.socket = io('http://localhost:3000');
-		this.socket.on('connect', this.connect);
-		this.socket.on('disconnect', this.disconnect);
-		this.socket.on('welcome', this.welcome);
-	},
+);
 
-	connect() {
-		this.setState({ status: 'connected'});
-	},
-
-	disconnect() {
-		this.setState({ status: 'disconnected'});
-
-	},
-	
-	welcome(serverState) {
-		this.setState({title: serverState.title});
-	},
-
-
-
-	render() {
-		return (
-			<div>
-				<Header title={this.state.title} />
-			</div>
-
-		)
-	}
+Router.run(routes, function(Handler) {
+	React.render(<Handler />, document.getElementById('react-container'));
 });
 
-React.render(<APP />, document.getElementById('react-container'));
