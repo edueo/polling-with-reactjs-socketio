@@ -10,6 +10,9 @@
 [Express](http://expressjs.com/)  
 [Socket.io](http://socket.io/)  
 
+## Tools
+[Webpack](https://webpack.github.io/)
+[Babel Loader](https://github.com/babel/babel-loader)
 
 ## Setup Polling
 
